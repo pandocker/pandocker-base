@@ -6,17 +6,19 @@ docker run --rm -it -v /$PWD:/workspace k4zuki/pandocker-base
 ```
 
 - example `Dockerfile`
+
 ```
-FROM k4zuki pandocker-base
+FROM k4zuki/pandocker-base
 
-RUN cd /workspace && \
-    git clone --recursive --depth=1 -b pandocker-0.0.1 https://github.com/K4zuki/pandoc_misc.git && \
-    mkdir -p /workspace/pandocker && \
-    cd /workspace/pandocker
+ENV PANDOC_MISC_VERSION pandocker-0.0.1
 
-WORKDIR /workspace/pandocker
+WORKDIR /var
 
-VOLUME ["/workspace/pandocker"]
+RUN git clone --recursive --depth=1 -b pandocker-0.0.1 https://github.com/K4zuki/pandoc_misc.git
+
+WORKDIR /workspace
+
+VOLUME ["/workspace"]
 
 CMD ["bash"]
 ```
