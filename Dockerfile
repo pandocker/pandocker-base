@@ -1,5 +1,7 @@
 FROM ubuntu:16.04
 
+MAINTAINER k4zuki
+
 ENV PLANTUML_VERSION 1.2017.18
 ENV PLANTUML_DOWNLOAD_URL https://sourceforge.net/projects/plantuml/files/plantuml.$PLANTUML_VERSION.jar/download
 
