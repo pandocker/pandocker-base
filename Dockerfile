@@ -28,7 +28,8 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
     pip3 install pyyaml pillow \
       pantable csv2table \
       six pandoc-imagine \
-      svgutils && \
+      svgutils \
+      pandoc-pandocker-filters && \
 
     wget -c $PANDOC_DOWNLOAD_URL && \
       dpkg -i pandoc-$PANDOC_VERSION-1-amd64.deb && \
