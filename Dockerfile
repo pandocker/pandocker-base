@@ -29,7 +29,7 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
       pantable csv2table \
       six pandoc-imagine \
       svgutils \
-      pandoc-pandocker-filters && \
+      git+https://github.com/K4zuki/pandocker-filters.git && \
 
     wget -c $PANDOC_DOWNLOAD_URL && \
       dpkg -i pandoc-$PANDOC_VERSION-1-amd64.deb && \
@@ -56,7 +56,6 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
     mkdir -p /workspace && \
     cd /workspace && \
 
-    apt-get -y remove python3-pip && \
       rm /pandoc-$PANDOC_VERSION-1-amd64.deb && \
       rm /linux*.gz && \
       rm -r ~/.cache/pip && \
