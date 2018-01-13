@@ -30,6 +30,7 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
       six pandoc-imagine \
       svgutils \
       pandoc-latex-barcode \
+      git+https://github.com/K4zuki/wavedrompy.git \
       git+https://github.com/K4zuki/pandocker-filters.git && \
 
     wget -c $PANDOC_DOWNLOAD_URL && \
