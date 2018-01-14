@@ -16,22 +16,21 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
     echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial-security main restricted universe multiverse" >> /etc/apt/sources.list && \
     apt-get -y update && \
     apt-get -y install wget curl unzip nano && \
-    apt-get -y --no-install-recommends install librsvg2-bin gpp git && \
-
-    apt-get -y --no-install-recommends install graphviz plantuml && \
+    apt-get -y --no-install-recommends install gpp \
+      # librsvg2-bin \
+      git && \
+    apt-get -y --no-install-recommends install graphviz && \
     curl -fsSL "$PLANTUML_DOWNLOAD_URL" -o /usr/local/plantuml.jar && \
     echo "#!/bin/bash" > /usr/local/bin/plantuml && \
     echo "java -jar /usr/local/plantuml.jar \$@" >> /usr/local/bin/plantuml && \
     chmod +x /usr/local/bin/plantuml && \
 
-    apt-get -y --no-install-recommends install python3-pip python3-setuptools && \
-    pip3 install pyyaml \
-      pantable csv2table \
+    apt-get -y --no-install-recommends install python3-pip python3-setuptools \
+      python3-yaml python3-cairosvg && \
+    pip3 install pantable csv2table \
       six pandoc-imagine \
       svgutils \
-      pandoc-latex-barcode \
-      git+https://github.com/K4zuki/wavedrompy.git \
-      git+https://github.com/K4zuki/pandocker-filters.git && \
+      pandoc-latex-barcode && \
 
     wget -c $PANDOC_DOWNLOAD_URL && \
       dpkg -i pandoc-$PANDOC_VERSION-1-amd64.deb && \
