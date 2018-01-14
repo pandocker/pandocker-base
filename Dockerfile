@@ -25,7 +25,7 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
     chmod +x /usr/local/bin/plantuml && \
 
     apt-get -y --no-install-recommends install python3-pip python3-setuptools && \
-    pip3 install pyyaml pillow<5.0 \
+    pip3 install pyyaml \
       pantable csv2table \
       six pandoc-imagine \
       svgutils \
