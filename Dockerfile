@@ -26,9 +26,10 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
     chmod +x /usr/local/bin/plantuml && \
 
     apt-get -y --no-install-recommends install python3-pip python3-setuptools \
-      python3-yaml python3-cairosvg && \
+      python3-yaml \
+      python3-cairosvg && \
     pip3 install pantable csv2table \
-      six pandoc-imagine \
+      pandoc-imagine \
       svgutils \
       pandoc-latex-barcode && \
 
