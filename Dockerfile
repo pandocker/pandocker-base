@@ -27,6 +27,7 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
 
     apt-get -y --no-install-recommends install python3-pip python3-setuptools \
       python3-yaml \
+      python3-six \
       python3-cairosvg && \
     pip3 install pantable csv2table \
       pandoc-imagine \
