@@ -17,7 +17,7 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
     apt-get -y update && \
     apt-get -y install wget curl unzip nano && \
     apt-get -y --no-install-recommends install gpp \
-      # librsvg2-bin \
+      librsvg2-bin \
       git && \
     apt-get -y --no-install-recommends install graphviz && \
     curl -fsSL "$PLANTUML_DOWNLOAD_URL" -o /usr/local/plantuml.jar && \
