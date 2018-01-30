@@ -19,7 +19,7 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
     apt-get -y --no-install-recommends install gpp \
       librsvg2-bin \
       git && \
-    apt-get -y --no-install-recommends install graphviz && \
+    apt-get -y --no-install-recommends install graphviz default-jre-headless && \
     curl -fsSL "$PLANTUML_DOWNLOAD_URL" -o /usr/local/plantuml.jar && \
     echo "#!/bin/bash" > /usr/local/bin/plantuml && \
     echo "java -jar /usr/local/plantuml.jar \$@" >> /usr/local/bin/plantuml && \
