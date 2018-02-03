@@ -40,9 +40,9 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
       tar zxf linux-ghc8-pandoc-2-0.tar.gz && \
       mv pandoc-crossref /usr/local/bin/ && \
 
-    apt-get -y install nodejs-legacy npm && \
-    npm install -g phantomjs-prebuilt wavedrom-cli \
-      fs-extra yargs onml bit-field && \
+    # apt-get -y install nodejs-legacy npm && \
+    # npm install -g phantomjs-prebuilt wavedrom-cli \
+    #   fs-extra yargs onml bit-field && \
 
     apt-get -y install --no-install-recommends texlive-xetex xzdec lmodern fonts-ricty-diminished \
       texlive-fonts-recommended texlive-generic-recommended texlive-lang-japanese && \
@@ -56,8 +56,8 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
       unzip -e 1.075R-it.zip && cp source-sans-pro-2.020R-ro-1.075R-it/TTF/SourceSansPro-*.ttf /usr/local/share/fonts/ && \
     mktexlsr && \
 
-    mkdir -p /workspace && \
-    cd /workspace && \
+    mkdir -p /workdir && \
+    cd /workdir && \
 
       rm /pandoc-$PANDOC_VERSION-1-amd64.deb && \
       rm /linux*.gz && \
@@ -66,8 +66,8 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
       apt-get -y clean && \
     fc-cache -fv
 
-WORKDIR /workspace
+WORKDIR /workdir
 
-VOLUME ["/workspace"]
+VOLUME ["/workdir"]
 
 CMD ["bash"]
