@@ -15,7 +15,7 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
     echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial-updates main restricted universe multiverse" >> /etc/apt/sources.list && \
     echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial-security main restricted universe multiverse" >> /etc/apt/sources.list && \
     apt-get -y update && \
-    apt-get -y install wget curl unzip nano && \
+    apt-get -y install wget curl unzip nano make && \
     apt-get -y --no-install-recommends install gpp \
       librsvg2-bin \
       git && \
