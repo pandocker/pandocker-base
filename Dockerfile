@@ -5,7 +5,7 @@ MAINTAINER k4zuki
 ENV PLANTUML_VERSION 1.2017.18
 ENV PLANTUML_DOWNLOAD_URL https://sourceforge.net/projects/plantuml/files/plantuml.$PLANTUML_VERSION.jar/download
 
-ENV PANDOC_VERSION 2.0.1.1
+ENV PANDOC_VERSION 2.1.2
 ENV PANDOC_DOWNLOAD_URL https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-1-amd64.deb
 ENV PANDOC_ROOT /usr/local/pandoc
 
