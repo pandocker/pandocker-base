@@ -31,8 +31,7 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
       python3-cairosvg && \
     pip3 install pantable csv2table \
       pandoc-imagine \
-      svgutils \
-      git+https://github.com/daamien/pandoc-latex-barcode && \
+      svgutils && \
 
     wget -c $PANDOC_DOWNLOAD_URL && \
       dpkg -i pandoc-$PANDOC_VERSION-1-amd64.deb && \
@@ -40,17 +39,10 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
       tar zxf linux-ghc82-pandoc21.tar.gz && \
       mv pandoc-crossref /usr/local/bin/ && \
 
-    apt-get -y install --no-install-recommends texlive-xetex xzdec lmodern fonts-ricty-diminished \
-      texlive-fonts-recommended texlive-generic-recommended texlive-lang-japanese && \
-    mkdir -p /usr/share/texlive/texmf-dist/tex/latex/BXptool/ && \
-      wget -c https://github.com/zr-tex8r/BXptool/archive/v0.4.zip && \
-      unzip -e v0.4.zip && \
-      cp BXptool-0.4/bx*.sty BXptool-0.4/bx*.def /usr/share/texlive/texmf-dist/tex/latex/BXptool/ && \
     wget -c https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.zip && \
       unzip -e 1.050R-it.zip && cp source-code-pro-2.030R-ro-1.050R-it/TTF/SourceCodePro-*.ttf /usr/local/share/fonts/ && \
     wget -c https://github.com/adobe-fonts/source-sans-pro/archive/2.020R-ro/1.075R-it.zip && \
       unzip -e 1.075R-it.zip && cp source-sans-pro-2.020R-ro-1.075R-it/TTF/SourceSansPro-*.ttf /usr/local/share/fonts/ && \
-    mktexlsr && \
 
     mkdir -p /workdir && \
     cd /workdir && \
