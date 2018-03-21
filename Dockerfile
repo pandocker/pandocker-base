@@ -36,7 +36,7 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
     wget -c $PANDOC_DOWNLOAD_URL && \
       dpkg -i pandoc-$PANDOC_VERSION-1-amd64.deb && \
       wget -c https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.0.1/linux-ghc82-pandoc20.tar.gz && \
-      tar zxf linux-ghc82-pandoc21.tar.gz && \
+      tar zxf linux-ghc82-pandoc20.tar.gz && \
       mv pandoc-crossref /usr/local/bin/ && \
 
     wget -c https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.zip && \
