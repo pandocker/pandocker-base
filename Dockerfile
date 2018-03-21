@@ -5,7 +5,7 @@ MAINTAINER k4zuki
 ENV PLANTUML_VERSION 1.2017.18
 ENV PLANTUML_DOWNLOAD_URL https://sourceforge.net/projects/plantuml/files/plantuml.$PLANTUML_VERSION.jar/download
 
-ENV PANDOC_VERSION 2.0.1.1
+ENV PANDOC_VERSION 2.1.3
 ENV PANDOC_DOWNLOAD_URL https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-1-amd64.deb
 ENV PANDOC_ROOT /usr/local/pandoc
 
@@ -36,8 +36,8 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
 
     wget -c $PANDOC_DOWNLOAD_URL && \
       dpkg -i pandoc-$PANDOC_VERSION-1-amd64.deb && \
-      wget -c https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.0.0/linux-ghc8-pandoc-2-0.tar.gz && \
-      tar zxf linux-ghc8-pandoc-2-0.tar.gz && \
+      wget -c https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.0.2/linux-ghc82-pandoc21.tar.gz && \
+      tar zxf linux-ghc82-pandoc21.tar.gz && \
       mv pandoc-crossref /usr/local/bin/ && \
 
     apt-get -y install --no-install-recommends texlive-xetex xzdec lmodern fonts-ricty-diminished \
