@@ -1,8 +1,10 @@
 # pandocker-base
-Yet another Ubuntu 16.04 based Docker image for markdown-html/tex/pdf conversion; base image
+Yet another Ubuntu 16.04 based Docker image for markdown-html conversion; base image
 
+**latest** branch includes LaTeX environment
+**notex** does not include LaTeX environment
 ```sh
-docker run --rm -it -v /$PWD:/workspace k4zuki/pandocker-base
+docker run --rm -it -v /$PWD:/workspace k4zuki/pandocker-base:latest
 ```
 
 - example `Dockerfile`
