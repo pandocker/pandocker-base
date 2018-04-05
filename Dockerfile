@@ -20,9 +20,9 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
       librsvg2-bin \
       git && \
     apt-get -y --no-install-recommends install graphviz default-jre-headless && \
-    curl -fsSL "$PLANTUML_DOWNLOAD_URL" -o /usr/local/plantuml.jar && \
+    curl -fsSL "$PLANTUML_DOWNLOAD_URL" -o /usr/local/bin/plantuml.jar && \
     echo "#!/bin/bash" > /usr/local/bin/plantuml && \
-    echo "java -jar /usr/local/plantuml.jar -Djava.awt.headless=true \$@" >> /usr/local/bin/plantuml && \
+    echo "java -jar /usr/local/bin/plantuml.jar -Djava.awt.headless=true \$@" >> /usr/local/bin/plantuml && \
     chmod +x /usr/local/bin/plantuml && \
 
     apt-get -y --no-install-recommends install python3-pip python3-setuptools \
