@@ -44,8 +44,7 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
     wget -c https://github.com/adobe-fonts/source-sans-pro/archive/2.020R-ro/1.075R-it.zip && \
       unzip -e 1.075R-it.zip && cp source-sans-pro-2.020R-ro-1.075R-it/TTF/SourceSansPro-*.ttf /usr/local/share/fonts/ && \
     wget -c https://github.com/adobe-fonts/source-han-sans/raw/release/OTF/SourceHanSansJ.zip && \
-      unzip -e SourceHanSansJ.zip && cp SourceHanSansJ/SourceHanSans-*.otf /usr/local/share/fonts/ && \
-    mktexlsr && \
+      unzip -e SourceHanSansJ.zip && cp SourceHanSansJ/SourceHanSans-*.otf /usr/local/share/fonts/
 
     mkdir -p /workdir && \
     cd /workdir && \
