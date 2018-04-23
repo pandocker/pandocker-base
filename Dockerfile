@@ -41,7 +41,7 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
       mv pandoc-crossref /usr/local/bin/ && \
 
     apt-get -y install --no-install-recommends texlive-xetex xzdec lmodern fonts-ricty-diminished \
-      texlive-fonts-recommended texlive-generic-recommended texlive-lang-japanese && \
+      texlive-fonts-recommended texlive-generic-recommended texlive-lang-japanese texlive-math-extra && \
     mkdir -p /usr/share/texlive/texmf-dist/tex/latex/BXptool/ && \
       wget -c https://github.com/zr-tex8r/BXptool/archive/v0.4.zip && \
       unzip -e v0.4.zip && \
