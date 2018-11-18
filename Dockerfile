@@ -32,6 +32,7 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
     pip3 install pantable csv2table \
       pandoc-imagine \
       svgutils \
+      wavedrom \
       git+https://github.com/daamien/pandoc-latex-barcode && \
 
     wget -c $PANDOC_DOWNLOAD_URL && \
