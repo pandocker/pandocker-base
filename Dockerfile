@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER k4zuki
 
-ENV PLANTUML_VERSION 1.21018.12
+ENV PLANTUML_VERSION 1.2018.12
 ENV PLANTUML_DOWNLOAD_URL https://sourceforge.net/projects/plantuml/files/plantuml.$PLANTUML_VERSION.jar/download
 
 ENV PANDOC_REPO https://github.com/jgm/pandoc
