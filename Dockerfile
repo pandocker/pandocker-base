@@ -2,12 +2,19 @@ FROM ubuntu:16.04
 
 MAINTAINER k4zuki
 
-ENV PLANTUML_VERSION 1.2017.18
+ENV PLANTUML_VERSION 1.2018.12
 ENV PLANTUML_DOWNLOAD_URL https://sourceforge.net/projects/plantuml/files/plantuml.$PLANTUML_VERSION.jar/download
 
-ENV PANDOC_VERSION 2.1.3
-ENV PANDOC_DOWNLOAD_URL https://github.com/jgm/pandoc/releases/download/$PANDOC_VERSION/pandoc-$PANDOC_VERSION-1-amd64.deb
+ENV PANDOC_REPO https://github.com/jgm/pandoc
+ENV PANDOC_VERSION 2.5
+ENV PANDOC_DEB pandoc-$PANDOC_VERSION-1-amd64.deb
+ENV PANDOC_DOWNLOAD_URL $PANDOC_REPO/releases/download/$PANDOC_VERSION/$PANDOC_DEB
 ENV PANDOC_ROOT /usr/local/pandoc
+
+ENV CROSSREF_REPO https://github.com/lierdakil/pandoc-crossref
+ENV CROSSREF_VERSION v0.3.4.0
+ENV CROSSREF_ARCHIVE linux-ghc86-pandoc24.tar.gz
+ENV CROSSREF_DOWNLOAD_URL $CROSSREF_REPO/releases/download/$CROSSREF_VERSION/$CROSSREF_ARCHIVE
 
 ENV LANG C.UTF-8
 
@@ -15,7 +22,7 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
     echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial-updates main restricted universe multiverse" >> /etc/apt/sources.list && \
     echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial-security main restricted universe multiverse" >> /etc/apt/sources.list && \
     apt-get -y update && \
-    apt-get -y install wget curl unzip nano make ssh && \
+    apt-get -y install wget curl unzip nano make && \
     apt-get -y --no-install-recommends install gpp \
       librsvg2-bin \
       git && \
@@ -31,12 +38,14 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
       python3-cairosvg && \
     pip3 install pantable csv2table \
       pandoc-imagine \
-      svgutils && \
+      svgutils \
+      wavedrom \
+      git+https://github.com/daamien/pandoc-latex-barcode && \
 
     wget -c $PANDOC_DOWNLOAD_URL && \
-      dpkg -i pandoc-$PANDOC_VERSION-1-amd64.deb && \
-      wget -c https://github.com/lierdakil/pandoc-crossref/releases/download/v0.3.0.2/linux-ghc82-pandoc21.tar.gz && \
-      tar zxf linux-ghc82-pandoc21.tar.gz && \
+      dpkg -i $PANDOC_DEB && \
+      wget -c $CROSSREF_DOWNLOAD_URL && \
+      tar zxf $CROSSREF_ARCHIVE && \
       mv pandoc-crossref /usr/local/bin/ && \
 
     # wget -c https://github.com/adobe-fonts/source-code-pro/archive/2.030R-ro/1.050R-it.zip && \
@@ -49,8 +58,8 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
     mkdir -p /workdir && \
     cd /workdir && \
 
-      rm /pandoc-$PANDOC_VERSION-1-amd64.deb && \
-      rm /linux*.gz && \
+      rm /$PANDOC_DEB && \
+      rm /$CROSSREF_ARCHIVE && \
       rm -r ~/.cache/pip && \
       apt-get -y clean && \
     fc-cache -fv
