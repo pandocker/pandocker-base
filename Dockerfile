@@ -6,7 +6,7 @@ ENV PLANTUML_VERSION 1.2018.12
 ENV PLANTUML_DOWNLOAD_URL https://sourceforge.net/projects/plantuml/files/plantuml.$PLANTUML_VERSION.jar/download
 
 ENV PANDOC_REPO https://github.com/jgm/pandoc
-ENV PANDOC_VERSION 2.4
+ENV PANDOC_VERSION 2.5
 ENV PANDOC_DEB pandoc-$PANDOC_VERSION-1-amd64.deb
 ENV PANDOC_DOWNLOAD_URL $PANDOC_REPO/releases/download/$PANDOC_VERSION/$PANDOC_DEB
 ENV PANDOC_ROOT /usr/local/pandoc
