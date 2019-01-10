@@ -36,7 +36,7 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
       python3-yaml \
       python3-six \
       python3-cairosvg && \
-    pip3 install pantable csv2table \
+    pip3 install -U setuptools pantable csv2table \
       pandoc-imagine \
       svgutils \
       wavedrom \
