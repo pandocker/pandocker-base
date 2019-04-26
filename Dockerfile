@@ -13,7 +13,7 @@ ENV PANDOC_ROOT /usr/local/pandoc
 
 ENV CROSSREF_REPO https://github.com/lierdakil/pandoc-crossref
 ENV CROSSREF_VERSION v0.3.4.0c
-ENV CROSSREF_ARCHIVE linux-pandoc2_6.tar.gz
+ENV CROSSREF_ARCHIVE linux-pandoc_2_6.tar.gz
 ENV CROSSREF_DOWNLOAD_URL $CROSSREF_REPO/releases/download/$CROSSREF_VERSION/$CROSSREF_ARCHIVE
 
 ENV LANG C.UTF-8
