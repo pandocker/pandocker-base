@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 MAINTAINER k4zuki
 
@@ -6,22 +6,19 @@ ENV PLANTUML_VERSION 1.2018.12
 ENV PLANTUML_DOWNLOAD_URL https://sourceforge.net/projects/plantuml/files/plantuml.$PLANTUML_VERSION.jar/download
 
 ENV PANDOC_REPO https://github.com/jgm/pandoc
-ENV PANDOC_VERSION 2.5
+ENV PANDOC_VERSION 2.7.3
 ENV PANDOC_DEB pandoc-$PANDOC_VERSION-1-amd64.deb
 ENV PANDOC_DOWNLOAD_URL $PANDOC_REPO/releases/download/$PANDOC_VERSION/$PANDOC_DEB
 ENV PANDOC_ROOT /usr/local/pandoc
 
 ENV CROSSREF_REPO https://github.com/lierdakil/pandoc-crossref
-ENV CROSSREF_VERSION v0.3.4.0
-ENV CROSSREF_ARCHIVE linux-ghc86-pandoc24.tar.gz
+ENV CROSSREF_VERSION v0.3.4.1
+ENV CROSSREF_ARCHIVE linux-pandoc_2_7_2.tar.gz
 ENV CROSSREF_DOWNLOAD_URL $CROSSREF_REPO/releases/download/$CROSSREF_VERSION/$CROSSREF_ARCHIVE
 
 ENV LANG C.UTF-8
 
-RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted universe multiverse" > /etc/apt/sources.list && \
-    echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial-updates main restricted universe multiverse" >> /etc/apt/sources.list && \
-    echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial-security main restricted universe multiverse" >> /etc/apt/sources.list && \
-    apt-get -y update && \
+RUN apt-get -y update && \
     apt-get -y install wget curl unzip nano make && \
     apt-get -y --no-install-recommends install gpp \
       librsvg2-bin \
@@ -36,7 +33,8 @@ RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted un
       python3-yaml \
       python3-six \
       python3-cairosvg && \
-    pip3 install pantable csv2table \
+    pip3 install -U setuptools pantable csv2table \
+      setuptools_scm \
       pandoc-imagine \
       svgutils \
       wavedrom && \
