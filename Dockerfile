@@ -18,10 +18,7 @@ ENV CROSSREF_DOWNLOAD_URL $CROSSREF_REPO/releases/download/$CROSSREF_VERSION/$CR
 
 ENV LANG C.UTF-8
 
-RUN echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial main restricted universe multiverse" > /etc/apt/sources.list && \
-    echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial-updates main restricted universe multiverse" >> /etc/apt/sources.list && \
-    echo "deb http://ftp.jaist.ac.jp/pub/Linux/ubuntu/ xenial-security main restricted universe multiverse" >> /etc/apt/sources.list && \
-    apt-get -y update && \
+RUN apt-get -y update && \
     apt-get -y install wget curl unzip nano make && \
     apt-get -y --no-install-recommends install gpp \
       librsvg2-bin \
