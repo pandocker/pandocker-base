@@ -40,6 +40,8 @@ RUN apt-get -y update && \
       wavedrom==1.8.0\
       git+https://github.com/daamien/pandoc-latex-barcode && \
 
+    apt-get -y install lua-yaml lua-penlight && \
+
     wget -c $PANDOC_DOWNLOAD_URL && \
       dpkg -i $PANDOC_DEB && \
       wget -c $CROSSREF_DOWNLOAD_URL && \
