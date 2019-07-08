@@ -16,6 +16,9 @@ ENV CROSSREF_VERSION v0.3.4.1
 ENV CROSSREF_ARCHIVE linux-pandoc_2_7_2.tar.gz
 ENV CROSSREF_DOWNLOAD_URL $CROSSREF_REPO/releases/download/$CROSSREF_VERSION/$CROSSREF_ARCHIVE
 
+ENV LUA_PATH /usr/share/lua/5.3/?.lua;;
+ENV LUA_CPATH /usr/lib/x86_64-linux-gnu/lua/5.3/?.so;;
+
 ENV LANG C.UTF-8
 
 RUN apt-get -y update && \
@@ -40,7 +43,7 @@ RUN apt-get -y update && \
       wavedrom==1.8.0\
       git+https://github.com/daamien/pandoc-latex-barcode && \
 
-    apt-get -y install lua-yaml lua-penlight && \
+    apt-get -y install lua-yaml lua-yaml-dev lua-penlight && \
 
     wget -c $PANDOC_DOWNLOAD_URL && \
       dpkg -i $PANDOC_DEB && \
