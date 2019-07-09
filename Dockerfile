@@ -8,9 +8,6 @@ RUN apt-get -y --no-install-recommends install librsvg2-bin git && \
       python3-yaml \
       python3-six \
       python3-cairosvg
-RUN apt-get -y install --no-install-recommends texlive-xetex xzdec lmodern fonts-ricty-diminished \
-      texlive-fonts-recommended fonts-liberation texlive-generic-recommended texlive-lang-japanese texlive-science && \
-      apt-get -y clean
 
 FROM common-base AS luarocks-builder
 ENV LUAROCKS_VERSION 3.1.3
