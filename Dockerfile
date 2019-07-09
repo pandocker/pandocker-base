@@ -1,7 +1,7 @@
 FROM ubuntu:18.04 AS common-base
 
 RUN apt-get -y update && \
-    apt-get -y install wget curl unzip nano make lua5.3
+    apt-get -y install wget curl unzip nano make gpp lua5.3
 RUN apt-get -y --no-install-recommends install librsvg2-bin git && \
     apt-get -y --no-install-recommends install graphviz default-jre-headless && \
     apt-get -y --no-install-recommends install python3-pip python3-setuptools \
@@ -9,8 +9,8 @@ RUN apt-get -y --no-install-recommends install librsvg2-bin git && \
       python3-six \
       python3-cairosvg
 RUN apt-get -y install --no-install-recommends texlive-xetex xzdec lmodern fonts-ricty-diminished \
-      texlive-fonts-recommended fonts-liberation texlive-generic-recommended texlive-lang-japanese texlive-science
-#      apt-get -y clean
+      texlive-fonts-recommended fonts-liberation texlive-generic-recommended texlive-lang-japanese texlive-science && \
+      apt-get -y clean
 
 FROM common-base AS luarocks-builder
 ENV LUAROCKS_VERSION 3.1.3
