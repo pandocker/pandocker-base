@@ -8,9 +8,9 @@ RUN apt-get -y --no-install-recommends install librsvg2-bin git && \
       python3-yaml \
       python3-six \
       python3-cairosvg
-RUN apt-get -y install --no-install-recommends texlive-xetex xzdec lmodern fonts-ricty-diminished \
-      texlive-fonts-recommended fonts-liberation texlive-generic-recommended texlive-lang-japanese texlive-science && \
-      apt-get -y clean
+RUN apt-get -y install --no-install-recommends texlive-xetex xzdec lmodern fonts-noto-cjk \
+    texlive-generic-recommended texlive-lang-japanese texlive-science && \
+    apt-get -y clean
 
 FROM common-base AS luarocks-builder
 ENV LUAROCKS_VERSION 3.1.3
@@ -60,8 +60,8 @@ RUN wget -c https://github.com/zr-tex8r/BXptool/archive/v0.4.zip && \
     unzip -e v0.4.zip
 # /BXptool-0.4/* /usr/share/texlive/texmf-dist/tex/latex/BXptool/
 
-RUN wget -c https://github.com/adobe-fonts/source-han-sans/raw/release/OTF/SourceHanSansJ.zip && \
-      unzip -e SourceHanSansJ.zip
+#RUN wget -c https://github.com/adobe-fonts/source-han-sans/raw/release/OTF/SourceHanSansJ.zip && \
+#      unzip -e SourceHanSansJ.zip
 # /SourceHanSansJ/SourceHanSans-*.otf /usr/local/share/fonts/
 
 FROM common-base AS base-builder
@@ -73,7 +73,7 @@ COPY --from=luarocks-builder /usr/local/etc/luarocks/config-5.3.lua /usr/local/e
 COPY --from=luarocks-builder /usr/local/share/lua/5.3/ /usr/local/share/lua/5.3/
 COPY --from=wget-curl /usr/local/bin/ /usr/local/bin/
 COPY --from=wget-curl /BXptool-0.4/ /usr/share/texlive/texmf-dist/tex/latex/BXptool/
-COPY --from=wget-curl /SourceHanSansJ/ /usr/local/share/fonts/
+#COPY --from=wget-curl /SourceHanSansJ/ /usr/local/share/fonts/
 COPY --from=wget-curl /$PANDOC_DEB /tmp/$PANDOC_DEB
 
 ENV LANG C.UTF-8
@@ -83,9 +83,7 @@ RUN pip3 install -U setuptools pantable csv2table \
     pandoc-imagine \
     svgutils \
     wavedrom && \
-
     apt install /tmp/$PANDOC_DEB && \
-
     mktexlsr && \
     fc-cache -fv
 
