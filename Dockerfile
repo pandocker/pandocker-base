@@ -8,7 +8,7 @@ RUN apt-get -y --no-install-recommends install librsvg2-bin git && \
       python3-yaml \
       python3-six \
       python3-cairosvg
-RUN apt-get -y install --no-install-recommends texlive-xetex xzdec lmodern fonts-noto-cjk \
+RUN apt-get -y install --no-install-recommends texlive-xetex xzdec lmodern fonts-noto-cjk fonts-noto-mono \
     texlive-generic-recommended texlive-lang-japanese texlive-science && \
     apt-get -y clean
 
