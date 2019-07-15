@@ -24,6 +24,7 @@ RUN wget $LUAROCKS_DOWNLOAD_URL && tar zxf $LUAROCKS_ARCHIVE && \
 RUN luarocks install lua-yaml
 RUN luarocks install lunajson
 RUN luarocks install penlight
+RUN luarocks install csv
 # /usr/local/bin/luarocks
 # /usr/local/bin/luarocks-admin
 # /usr/local/etc/luarocks/config-5.3.lua
