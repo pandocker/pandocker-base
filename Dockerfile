@@ -44,4 +44,5 @@ WORKDIR /workdir
 
 VOLUME ["/workdir"]
 
+ENTRYPOINT [""]
 CMD ["bash"]
