@@ -13,6 +13,7 @@ RUN apt-get -y install --no-install-recommends xzdec lmodern fonts-noto-cjk font
     apt-get -y clean
 RUN luarocks install lua-yaml
 RUN luarocks install lunajson
+RUN luarocks install lua-cjson 2.1.0-1
 RUN luarocks install csv
 
 ENV PLANTUML_VERSION 1.2020.15
@@ -36,6 +37,22 @@ RUN pip3 install -U pantable csv2table \
     wavedrom && \
     mktexlsr && \
     fc-cache -fv
+
+RUN tlmgr update --self && fc-cache -fv && tlmgr install \
+    ascmac \
+    bxjscls \
+    ctex \
+    environ \
+    ifoddpage \
+    lastpage \
+    mdframed \
+    needspace \
+    tcolorbox \
+    trimspaces \
+    xhfill \
+    zref \
+    zxjafont \
+    zxjatype && mktexlsr
 
 RUN mkdir -p /workdir && \
     cd /workdir
