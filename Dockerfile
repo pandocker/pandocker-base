@@ -1,7 +1,7 @@
 FROM pandoc/ubuntu-latex:2.10
 
 RUN apt-get -y update && \
-    apt-get -y install wget curl unzip nano make gpp lua5.3 luarocks lua-penlight lua-yaml
+    apt-get -y install wget curl unzip nano make gpp lua5.3 luarocks lua-penlight lua-yaml liblua5.3-dev
 RUN apt-get -y --no-install-recommends install librsvg2-bin git && \
     apt-get -y --no-install-recommends install graphviz default-jre-headless && \
     apt-get -y --no-install-recommends install python3-pip \
