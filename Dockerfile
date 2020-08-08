@@ -38,6 +38,7 @@ RUN pip3 install -U pantable csv2table \
     mktexlsr && \
     fc-cache -fv
 
+RUN tlmgr option repository http://mirror.ctan.org/systems/texlive/tlnet
 RUN tlmgr update --self && fc-cache -fv && tlmgr install \
     ascmac \
     bxjscls \
