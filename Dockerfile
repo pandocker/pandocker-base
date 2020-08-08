@@ -1,7 +1,7 @@
 FROM pandoc/ubuntu-latex:2.10
 
 RUN apt-get -y update && \
-    apt-get -y install wget curl unzip nano make gpp lua5.3 luarocks lua-penlight lua-yaml liblua5.3-dev
+    apt-get -y install wget curl unzip nano make gpp lua5.3 luarocks lua-penlight liblua5.3-dev
 RUN apt-get -y --no-install-recommends install librsvg2-bin git && \
     apt-get -y --no-install-recommends install graphviz default-jre-headless && \
     apt-get -y --no-install-recommends install python3-pip \
@@ -9,9 +9,9 @@ RUN apt-get -y --no-install-recommends install librsvg2-bin git && \
       python3-yaml \
       python3-six \
       python3-cairosvg
-RUN apt-get -y install --no-install-recommends xzdec lmodern fonts-noto-cjk fonts-noto-mono fonts-ricty-diminished && \
+RUN apt-get -y install --no-install-recommends xzdec lmodern fonts-ricty-diminished && \
     apt-get -y clean
-RUN luarocks install lua-yaml
+RUN luarocks install lyaml
 RUN luarocks install lunajson
 RUN luarocks install lua-cjson 2.1.0-1
 RUN luarocks install csv
@@ -43,6 +43,8 @@ RUN tlmgr update --self && fc-cache -fv && tlmgr install \
     bxjscls \
     ctex \
     environ \
+    haranoaji \
+    haranoaji-extra \
     ifoddpage \
     lastpage \
     mdframed \
