@@ -37,13 +37,12 @@ RUN npm i canvas --build-from-source && \
 
 FROM pandoc/latex:${pandoc_version}-ubuntu
 
-#COPY src/BXptool-0.4/ /opt/texlive/texdir/texmf-dist/tex/latex/BXptool/
 #COPY src/sourcecodepro/*.ttf /usr/share/fonts/
 #COPY src/sourcesanspro/*.ttf /usr/share/fonts/
-#COPY src/noto-jp/*.otf /usr/share/fonts/
 
 COPY --from=tool-getter /usr/local/bin/ /usr/local/bin/
 COPY --from=tool-getter /SourceHanSansJ/ /usr/share/fonts/SourceHanSansJ/
+COPY --from=tool-getter /BXptool-0.4/ /opt/texlive/texdir/texmf-dist/tex/latex/BXptool/
 COPY --from=wavedrom /root/wavedrom-cli /usr/local/bin/
 
 RUN apt-get -y update && \
