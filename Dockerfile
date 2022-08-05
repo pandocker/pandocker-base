@@ -55,7 +55,7 @@ RUN apt-get -y --no-install-recommends install librsvg2-bin git && \
       python3-yaml \
       python3-six \
       python3-cairosvg
-RUN apt-get -y install --no-install-recommends xzdec lmodern fonts-ricty-diminished fonts-notocjk-extra && \
+RUN apt-get -y install --no-install-recommends xzdec lmodern fonts-ricty-diminished fonts-noto-cjk-extra && \
     apt-get -y clean
 RUN luarocks install lyaml
 RUN luarocks install lunajson
